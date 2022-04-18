@@ -8,10 +8,6 @@ namespace ZaidimasMokytis
 {
     public static class TeachingGame
     {
-        //kuris moko vaikus dalybos. Paleidus programą yra parodoma lygtis,
-        //pvz: “64 / 4 = “. Kursorius gale mirksi laukdamas atsakymo.
-        //Pakartoti jei neteisingai ir parašyti, kad neteisinga
-
         public static void StartGame()
         {
             AskDivisionQuestion();
