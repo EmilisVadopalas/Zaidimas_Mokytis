@@ -8,21 +8,25 @@ namespace ZaidimasMokytis
 {
     public static class TeachingGame
     {
-        public static void StartGame()
+        public static void MainMeniu()
         {
-            AskDivisionQuestion();
-
             while (true)
             {
+                // matematikos, geografijos, lietuvių kalbos, politologijos
+                Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                 Console.WriteLine("********************************************");
-                Console.WriteLine("*                   Meniu                  *");
+                Console.WriteLine("*                 Meniu                    *");
                 Console.WriteLine("********************************************");
                 Console.WriteLine("********************************************");
-                Console.WriteLine("*           Dalybos klausimas - dlk        *");
+                Console.WriteLine("*             Matematika - mat             *");
                 Console.WriteLine("********************************************");
-                Console.WriteLine("*           Daugybos klausimas - dgk       *");
+                Console.WriteLine("*             Lietuviu - liet              *");
                 Console.WriteLine("********************************************");
-                Console.WriteLine("*            Uzdaryti zaidima - uz         *");
+                Console.WriteLine("*             Geografija - geo             *");
+                Console.WriteLine("********************************************");
+                Console.WriteLine("*            Politologija - pol            *");
+                Console.WriteLine("********************************************");
+                Console.WriteLine("*              Uzdaryti - uz               *");
                 Console.WriteLine("********************************************");
                 Console.WriteLine("\nJusu pasirinkimas ?");
                 var meniuChoice = Console.ReadLine();
@@ -30,6 +34,47 @@ namespace ZaidimasMokytis
                 if (meniuChoice.Trim().ToLower() == "uz")
                 {
                     System.Environment.Exit(0);
+                }
+                else if (meniuChoice.Trim().ToLower() == "mat")
+                {
+                    MathMeniu();
+                }
+                else if (meniuChoice.Trim().ToLower() == "liet")
+                {
+                    Console.WriteLine("dar nera");
+                }
+                else if (meniuChoice.Trim().ToLower() == "geo")
+                {
+                    Console.WriteLine("dar nera");
+                }
+                else if (meniuChoice.Trim().ToLower() == "pol")
+                {
+                    Console.WriteLine("dar nera");
+                }
+            }
+        }
+
+        private static void MathMeniu()
+        {
+            while (true)
+            {
+                Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                Console.WriteLine("********************************************");
+                Console.WriteLine("*          Matematikos Meniu               *");
+                Console.WriteLine("********************************************");
+                Console.WriteLine("********************************************");
+                Console.WriteLine("*        Dalybos klausimas - dlk           *");
+                Console.WriteLine("********************************************");
+                Console.WriteLine("*        Daugybos klausimas - dgk          *");
+                Console.WriteLine("********************************************");
+                Console.WriteLine("*      Grizti i pagrindini Meniu - uz      *");
+                Console.WriteLine("********************************************");
+                Console.WriteLine("\nJusu pasirinkimas ?");
+                var meniuChoice = Console.ReadLine();
+
+                if (meniuChoice.Trim().ToLower() == "uz")
+                {
+                    MainMeniu();
                 }
                 else if (meniuChoice.Trim().ToLower() == "dlk")
                 {
@@ -43,7 +88,7 @@ namespace ZaidimasMokytis
             }
         }
 
-        public static void AskDivisionQuestion()
+        private static void AskDivisionQuestion()
         {
             while (true)
             {
@@ -56,13 +101,17 @@ namespace ZaidimasMokytis
                 var solved = false;
 
                 while (!solved)
-                {
+                {                    
                     Console.WriteLine("Jei norite iseiti iveskite \"q\" raide  (quit)");
                     Console.WriteLine("Dalybos klausimas :");
                     Console.WriteLine($"{multipliedNumber} / {number1} = ?");                   
                     Console.WriteLine("Iveskite atsakyma :");
 
                     var atsakymas = Console.ReadLine();
+
+                    Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                    Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                    Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                     if (atsakymas.Trim().ToLower() == "q")
                     {
@@ -97,7 +146,7 @@ namespace ZaidimasMokytis
             }
         }
 
-        public static void AskMultiplicationQuestion()
+        private static void AskMultiplicationQuestion()
         {
             while (true)
             {
@@ -117,6 +166,10 @@ namespace ZaidimasMokytis
                     Console.WriteLine("Iveskite atsakyma :");
 
                     var atsakymas = Console.ReadLine();
+
+                    Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                    Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                    Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                     if (atsakymas.Trim().ToLower() == "q")
                     {

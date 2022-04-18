@@ -1,3 +1,3 @@
 ﻿using ZaidimasMokytis;
 
-TeachingGame.StartGame();
+TeachingGame.MainMeniu();
