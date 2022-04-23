@@ -13,7 +13,7 @@ namespace ZaidimasMokytis
             while (true)
             {
                 // matematikos, geografijos, lietuvių kalbos, politologijos
-                Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                Console.Clear();
                 Console.WriteLine("********************************************");
                 Console.WriteLine("*                 Meniu                    *");
                 Console.WriteLine("********************************************");
@@ -45,7 +45,7 @@ namespace ZaidimasMokytis
                 }
                 else if (meniuChoice.Trim().ToLower() == "geo")
                 {
-                    Console.WriteLine("dar nera");
+                    GeoTask();
                 }
                 else if (meniuChoice.Trim().ToLower() == "pol")
                 {
@@ -54,11 +54,58 @@ namespace ZaidimasMokytis
             }
         }
 
+        private static void GeoTask()
+        {
+            var atsakymas = "x";
+            bool firstIteration = true;
+
+            while (true)
+            {
+                Console.Clear();
+
+                if (atsakymas.Trim().ToLower() == "a")
+                {
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine("teisingai !");
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("paspauskite Enter kad griztumete i meniu");
+                    Console.ReadLine();
+                    return;
+
+                }
+                else if (atsakymas.Trim().ToLower() == "b" || atsakymas.Trim().ToLower() == "c" || atsakymas.Trim().ToLower() == "d")
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine("Neteisingai :( \n");
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else if (!firstIteration)
+                {
+                    Console.WriteLine("Pasirinkite viena is: a, b, c, d, - arba q - noredami grizti i pagrindini meniu");
+                }
+
+                Console.WriteLine("Koks natūralus išteklis Afganistane yra gausus ir itin reikalingas baterijų technologijai?");
+                Console.WriteLine("a: Litis");
+                Console.WriteLine("b: Gelezis");
+                Console.WriteLine("c: Fosforas");
+                Console.WriteLine("d: Silikonas \n");
+                Console.Write("Pasirinkite teisinga atasakyma: ");
+                
+                firstIteration=false;
+
+                atsakymas = Console.ReadLine();
+                Console.WriteLine("\n");                
+            }
+        }
         private static void MathMeniu()
         {
             while (true)
             {
-                Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                Console.Clear();
                 Console.WriteLine("********************************************");
                 Console.WriteLine("*          Matematikos Meniu               *");
                 Console.WriteLine("********************************************");
@@ -90,6 +137,8 @@ namespace ZaidimasMokytis
 
         private static void AskDivisionQuestion()
         {
+            Console.Clear();
+
             while (true)
             {
                 Random random = new Random();
@@ -102,16 +151,14 @@ namespace ZaidimasMokytis
 
                 while (!solved)
                 {                    
-                    Console.WriteLine("Jei norite iseiti iveskite \"q\" raide  (quit)");
+                    Console.WriteLine("Jei norite iseiti iveskite \"q\" raide  (quit) \n");
                     Console.WriteLine("Dalybos klausimas :");
                     Console.WriteLine($"{multipliedNumber} / {number1} = ?");                   
-                    Console.WriteLine("Iveskite atsakyma :");
+                    Console.Write("Iveskite atsakyma :");
 
                     var atsakymas = Console.ReadLine();
 
-                    Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-                    Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-                    Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                    Console.Clear();
 
                     if (atsakymas.Trim().ToLower() == "q")
                     {
@@ -148,6 +195,8 @@ namespace ZaidimasMokytis
 
         private static void AskMultiplicationQuestion()
         {
+            Console.Clear();
+
             while (true)
             {
                 Random random = new Random();
@@ -160,16 +209,14 @@ namespace ZaidimasMokytis
 
                 while (!solved)
                 {
-                    Console.WriteLine("Jei norite iseiti iveskite \"q\" raide  (quit)");
+                    Console.WriteLine("Jei norite iseiti iveskite \"q\" raide  (quit) \n");
                     Console.WriteLine("Daugybos klausimas :");
                     Console.WriteLine($"{number1} x {number2} = ?");                   
-                    Console.WriteLine("Iveskite atsakyma :");
+                    Console.Write("Iveskite atsakyma :");
 
                     var atsakymas = Console.ReadLine();
 
-                    Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-                    Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-                    Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                    Console.Clear();
 
                     if (atsakymas.Trim().ToLower() == "q")
                     {
