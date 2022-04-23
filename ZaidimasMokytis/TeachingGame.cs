@@ -26,6 +26,8 @@ namespace ZaidimasMokytis
                 Console.WriteLine("********************************************");
                 Console.WriteLine("*            Politologija - pol            *");
                 Console.WriteLine("********************************************");
+                Console.WriteLine("*         amziaus skaiciuokle - ak        *");
+                Console.WriteLine("********************************************");
                 Console.WriteLine("*              Uzdaryti - uz               *");
                 Console.WriteLine("********************************************");
                 Console.WriteLine("\nJusu pasirinkimas ?");
@@ -47,10 +49,158 @@ namespace ZaidimasMokytis
                 {
                     GeoTask();
                 }
+                else if (meniuChoice.Trim().ToLower() == "ak")
+                {
+                    AgeCalculator();
+                }
                 else if (meniuChoice.Trim().ToLower() == "pol")
                 {
                     Console.WriteLine("dar nera");
                 }
+            }
+        }
+
+        private static void AgeCalculator()
+        {
+            Console.Clear();
+            var error = string.Empty;
+
+            while (true)
+            {
+                if (!string.IsNullOrEmpty(error))
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine($"{error} \n");
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+
+                Console.WriteLine("Jei norite iseiti iveskite \"q\" raide  (quit) \n");
+                Console.Write("Iveskite gimimo metus: ");
+                var yearOfBirth = Console.ReadLine();
+                var month = 0;
+                var day = 0;
+
+                if (yearOfBirth == "q") return;
+
+                if (int.TryParse(yearOfBirth, out var year))
+                {
+                    if (year > DateTime.Now.Year)
+                    {
+                        error = $"dabar yra {DateTime.Now.Year} metai zmogus negali but gimes {year} (jis dar negimes)";
+                        continue;
+                    }
+                }
+                else
+                {
+                    error = $"iveskite metus pvz: 1995, '{yearOfBirth}' netinka";
+                    continue;
+                }
+
+                error = string.Empty;
+                var monthNotSelected = true;
+
+                while (monthNotSelected)
+                {
+                    Console.Clear();
+
+                    if (!string.IsNullOrEmpty(error))
+                    {
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.WriteLine($"{error} \n");
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+
+                    Console.WriteLine("Jei norite iseiti iveskite \"q\" raide  (quit) \n");
+                    Console.Write("Iveskite gimimo menesi (skaiciumi): ");
+                    var monthOfBirth = Console.ReadLine();
+
+                    if (monthOfBirth == "q") return;
+
+                    if (int.TryParse(monthOfBirth, out month))
+                    {
+                        if (month > 12 || month < 1)
+                        {
+                            error = $"iveskite menesi nuo 1 iki 12... {month} netinka";
+                            continue;
+                        }
+                        else
+                        {
+                            monthNotSelected = false;
+                        }
+                    }
+                    else
+                    {
+                        error = $"iveskite menesio skaiciu pvz: 9, '{monthOfBirth}' netinka";
+                        continue;
+                    }
+                }
+
+                error = string.Empty;
+                var dayNotSelected = true;
+
+                while (dayNotSelected)
+                {
+                    Console.Clear();
+
+                    if (!string.IsNullOrEmpty(error))
+                    {
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.WriteLine($"{error} \n");
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+
+                    Console.WriteLine("Jei norite iseiti iveskite \"q\" raide  (quit) \n");
+                    Console.Write("Iveskite gimimo diena (skaiciumi): ");
+                    var dayOfBirth = Console.ReadLine();
+
+                    if (dayOfBirth == "q") return;
+
+                    if (int.TryParse(dayOfBirth, out day))
+                    {
+                        if (day > DateTime.DaysInMonth(year, month) || day < 1)
+                        {
+                            error = $"{year}-{month} menesis turi nuo 1 iki {DateTime.DaysInMonth(year, month)} dienu..., {day} netinka";
+                            continue;
+                        }
+                        else
+                        {
+                            dayNotSelected = false;
+                        }
+                    }
+                    else
+                    {
+                        error = $"iveskite dienos skaiciu pvz: 20, '{day}' netinka";
+                        continue;
+                    }
+                }
+
+                var today = DateTime.Today;
+                var age = today.Year - year;
+                var monthDiff = today.Month - month;
+                var dayDiff = today.Day - day;
+
+                if (dayDiff < 0)
+                {
+                    monthDiff--;
+                }
+                if (monthDiff < 0)
+                {
+                    age--;
+                }
+
+                Console.Clear();
+                
+                Console.WriteLine($"\nApskaiciuotas amazius: {age} \n ");
+
+                Console.WriteLine("Jei norite iseiti iveskite \"q\" raide  (quit) \n");
+                Console.WriteLine("jei norite kartoti spauskite ENTER ");
+                if (Console.ReadLine() == "q") return;
             }
         }
 
@@ -87,7 +237,7 @@ namespace ZaidimasMokytis
                 {
                     Console.WriteLine("Pasirinkite viena is: a, b, c, d, - arba q - noredami grizti i pagrindini meniu");
                 }
-
+                Console.WriteLine("Jei norite iseiti iveskite \"q\" raide  (quit) \n");
                 Console.WriteLine("Koks natūralus išteklis Afganistane yra gausus ir itin reikalingas baterijų technologijai?");
                 Console.WriteLine("a: Litis");
                 Console.WriteLine("b: Gelezis");
@@ -101,6 +251,7 @@ namespace ZaidimasMokytis
                 Console.WriteLine("\n");                
             }
         }
+
         private static void MathMeniu()
         {
             while (true)
@@ -223,7 +374,7 @@ namespace ZaidimasMokytis
                         return;
                     }
 
-                    if (int.TryParse(atsakymas, out var number))
+                    if (int.TryParse(atsakymas, out int number))
                     {
                         if (number == multipliedNumber)
                         {
