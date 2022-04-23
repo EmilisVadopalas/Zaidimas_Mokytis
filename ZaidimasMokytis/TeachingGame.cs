@@ -67,8 +67,7 @@ namespace ZaidimasMokytis
         }
 
         private static void MultiplicationTable()
-        {
-            
+        {            
             Console.WriteLine("Daugybos lentele: \n");
 
             for(int i = 2; i < 10; i++)
@@ -296,7 +295,7 @@ namespace ZaidimasMokytis
 
                 if (meniuChoice.Trim().ToLower() == "uz")
                 {
-                    MainMeniu();
+                    return;
                 }
                 else if (meniuChoice.Trim().ToLower() == "dlk")
                 {
