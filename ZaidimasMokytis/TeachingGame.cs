@@ -26,7 +26,9 @@ namespace ZaidimasMokytis
                 Console.WriteLine("********************************************");
                 Console.WriteLine("*            Politologija - pol            *");
                 Console.WriteLine("********************************************");
-                Console.WriteLine("*         amziaus skaiciuokle - ak        *");
+                Console.WriteLine("*         amziaus skaiciuokle - ak         *");
+                Console.WriteLine("********************************************");
+                Console.WriteLine("*           Daugybos lentele - dl          *");
                 Console.WriteLine("********************************************");
                 Console.WriteLine("*              Uzdaryti - uz               *");
                 Console.WriteLine("********************************************");
@@ -35,7 +37,7 @@ namespace ZaidimasMokytis
 
                 if (meniuChoice.Trim().ToLower() == "uz")
                 {
-                    System.Environment.Exit(0);
+                    Environment.Exit(0);
                 }
                 else if (meniuChoice.Trim().ToLower() == "mat")
                 {
@@ -53,11 +55,33 @@ namespace ZaidimasMokytis
                 {
                     AgeCalculator();
                 }
+                else if (meniuChoice.Trim().ToLower() == "dl")
+                {
+                    MultiplicationTable();
+                }
                 else if (meniuChoice.Trim().ToLower() == "pol")
                 {
                     Console.WriteLine("dar nera");
                 }
             }
+        }
+
+        private static void MultiplicationTable()
+        {
+            
+            Console.WriteLine("Daugybos lentele: \n");
+
+            for(int i = 2; i < 10; i++)
+            {
+                for(int j = 1; j <= 10; j++)
+                {
+                    Console.WriteLine($"{i.ToString().PadLeft(2)} x {j.ToString().PadRight(2)} = {(i*j).ToString().PadLeft(3)}");
+                }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("Grizti i meniu - spauskite Enter");
+            Console.ReadLine();
         }
 
         private static void AgeCalculator()
