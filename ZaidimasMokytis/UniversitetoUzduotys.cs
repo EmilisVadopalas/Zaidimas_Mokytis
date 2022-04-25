@@ -18,11 +18,11 @@ namespace ZaidimasMokytis
 
                 if (pasirinkimas == "add")
                 {
-                    Add(masyvas);
+                    masyvas = Add(masyvas);
                 }
                 else if (pasirinkimas == "delete")
                 {
-                    Delete(masyvas);
+                    masyvas = Delete(masyvas);
                 }
                 else if (pasirinkimas == "quit")
                 {
@@ -33,7 +33,7 @@ namespace ZaidimasMokytis
 
         #region Privates
 
-        public static void Add(string[] masyvas)
+        public static string[] Add(string[] masyvas)
         {
             Console.Clear();
             Console.WriteLine($"Iveskite koki teksta nori prideti ir spauskite ENTER kai baigsite");
@@ -46,16 +46,20 @@ namespace ZaidimasMokytis
             Console.WriteLine($"Masyvo ilgis {masyvas.Length}\n");
             Console.WriteLine("Masyvo duomenys:\n");
             masyvas.PrintOut();
+            Console.WriteLine("\n\nTesti ? Spauskite ENTER");
+            Console.ReadLine();
+
+            return masyvas;
         }
 
-        public static void Delete(string[] masyvas)
+        public static string[] Delete(string[] masyvas)
         {
-            var nepasirinkta = false;
+            var nepasirinkta = true;
             int index = -1;
             while (nepasirinkta)
             {
                 Console.Clear();
-                Console.WriteLine($"Iveskite koki indeksa ties kurio norite istrinti irasa is masyvo (nuo 0 iki {masyvas.Length-1}");
+                Console.WriteLine($"Iveskite koki indeksa ties kurio norite istrinti irasa is masyvo (nuo 0 iki {masyvas.Length-1})");
                 Console.Write("indeksas: ");
                 var indekasas = Console.ReadLine();
 
@@ -71,6 +75,10 @@ namespace ZaidimasMokytis
             Console.WriteLine($"Masyvo ilgis {masyvas.Length}\n");
             Console.WriteLine("Masyvo duomenys:\n");
             masyvas.PrintOut();
+            Console.WriteLine("\n\nTesti ? Spauskite ENTER");
+            Console.ReadLine();
+
+            return masyvas;
         }
 
         public static string GetUserAction()
