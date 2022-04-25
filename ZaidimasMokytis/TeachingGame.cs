@@ -66,17 +66,22 @@ namespace ZaidimasMokytis
             }
         }
 
-        private static void MultiplicationTable()
-        {            
-            Console.WriteLine("Daugybos lentele: \n");
-
-            for(int i = 2; i < 10; i++)
+        public static void MultiplicationTable()
+        {      
+            for (int i = 2; i < 10; i+=4)
             {
-                for(int j = 1; j <= 10; j++)
+                for (int j = 1; j <= 10; j++)
                 {
-                    Console.WriteLine($"{i.ToString().PadLeft(2)} x {j.ToString().PadRight(2)} = {(i*j).ToString().PadLeft(3)}");
+                    Console.WriteLine($"{i.ToString().PadLeft(2)} x {j.ToString().PadRight(2)} = {(i * j).ToString().PadLeft(3)}" +
+                        $"    " +
+                        $"{(1+i).ToString().PadLeft(2)} x {j.ToString().PadRight(2)} = {((1 + i) * j).ToString().PadLeft(3)}" +
+                        $"    " +
+                        $"{(2+i).ToString().PadLeft(2)} x {j.ToString().PadRight(2)} = {((2 + i) * j).ToString().PadLeft(3)}" +
+                        $"    " +
+                        $"{(3+i).ToString().PadLeft(2)} x {j.ToString().PadRight(2)} = {((3 + i) * j).ToString().PadLeft(3)}");
+
                 }
-                Console.WriteLine();
+                Console.WriteLine("\n");
             }
 
             Console.WriteLine("Grizti i meniu - spauskite Enter");
