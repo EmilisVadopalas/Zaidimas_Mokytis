@@ -8,7 +8,7 @@ Console.InputEncoding = System.Text.Encoding.Unicode;
 
 //TeachingGame.MultiplicationTable();
 
-///6-ta uzduotis extension metodai ArrayExtensions.cs faile
+/// 6 - ta uzduotis extension metodai ArrayExtensions.cs faile
 //var arrayInt = new int[] { 1, 2, 11, 3, 4 };
 //arrayInt = arrayInt.Add(5);
 //arrayInt = arrayInt.Add(6);
@@ -26,9 +26,11 @@ Console.InputEncoding = System.Text.Encoding.Unicode;
 ///Universitetines uzduotis
 ///
 
-UniversitetoUzduotys.PirmaUzduotis();
+//UniversitetoUzduotys.PirmaUzduotis();
 
+//UniversitetoUzduotys.AntraUzduotis();
 
+UniversitetoUzduotys.TreciaUzduotis();
 
 
 

@@ -34,17 +34,21 @@ namespace ZaidimasMokytis
         /// <param name="array"></param>
         /// <param name="addedInt">adds to the end of array</param>
         /// <returns>return new array with changes</returns>
-        public static string[] Add(this string[] array, string addedString)
+        public static string[] Add(this string[] oldArray, string addedString)
         {
-            var newArray = new string[array.Length + 1];
+            //1. susikuriam nauja array +1 dydzio
+            var newArray = new string[oldArray.Length + 1];
 
-            for (int i = 0; i < array.Length; i++)
+            //2. is seno array reiksmes perkeliam i nauja
+            for (int i = 0; i < oldArray.Length; i++)
             {
-                newArray[i] = array[i];
+                newArray[i] = oldArray[i];
             }
 
-            newArray[array.Length] = addedString;
+            //3. pridedam i nauja arreju papildoma reiksme
+            newArray[oldArray.Length] = addedString;
 
+            //4. grazinam nauja array
             return newArray;
         }
 
